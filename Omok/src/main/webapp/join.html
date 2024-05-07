@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원 가입창 </title>
+<script>
+	function fn_sendMember() {
+		var frmMember = document.frmMember;
+		var id = frmMember.id.value;
+		var pwd = frmMember.pwd.value;
+		var pwd2 = frmMember.pwd2.value;
+		var name = frmMember.name.value;
+		var tel = frmMember.tel.value;
+		
+		if(id.length == 0 || id == "") {
+			alert ("아이디는 필수입니다."); 
+		} else if (pwd.length == 0 || pwd == "") {
+			alert ("비밀번호는 필수입니다."); 
+		} else if (pwd != pwd2){
+			alert ("비밀번호와 확인이 동일하지 않습니다."); 
+		} else if (name.length == 0 || name == "") {
+			alert ("닉네임은 필수입니다."); 
+		} else if (tel.length == 0 || tel == "") {
+			alert ("이메일은 필수입니다."); 
+		} else {
+			frmMember.method = "post";
+			frmMember.action = "omokjoin";
+			frmMember.submit();
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<form name = "frmMember">
+		<table>
+			<th> 회원 가입창 </th>
+			<tr>
+				<td> 아이디 </td>
+				<td> <input type = "text" name = "id"> </td>
+			</tr>
+			<tr>
+				<td> 비밀번호 </td>
+				<td> <input type = "password" name = "pwd"> </td>
+			</tr>
+			<tr>
+				<td> 비밀번호 확인 </td>
+				<td> <input type = "password" name = "pwd2"> </td>
+			</tr>
+			<tr>
+				<td> 닉네임 </td>
+				<td> <input type = "text" name = "name"> </td>
+			</tr>
+			<tr>
+				<td> 전화번호 </td>
+				<td> <input type = "text" name = "tel"> </td>
+			</tr>
+		</table>
+		<input type = "button" value = "가입하기" onclick = "fn_sendMember()">
+		<input type = "reset" value = "다시입력">
+		<input type = "hidden" name = "command" value = "addMember" />
+	</form> 
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 아이디/ 비밀번호 찾기 </title>
+<script>
+	function fn_find() {
+		let frmFind = document.frmFind;
+        let name = frmFind.name.value;
+        let tel = frmFind.tel.value;
+        let idpw = frmFind.finder.value;
+
+        console.log(idpw);
+
+        if (name.length === 0 || name === "") {
+            alert("닉네임을 입력하세요.");
+        } else if (tel.length === 0 || tel === "") {
+            alert("전화번호를 입력하세요.");
+        } else {
+            if (idpw == 1) {
+                frmFind.command.value = "findId";
+            } else {
+                frmFind.command.value = "findPwd";
+            }
+            frmFind.method = "post";
+            frmFind.action = "omokfind";
+            frmFind.submit();
+        }
+    }
+</script>
+</head>
+<body>
+	<form name="frmFind">
+		<table>
+			<th> 아이디 / 비밀번호 찾기 </th>
+			<tr>
+				<td>  
+					<input type = "radio" name="finder" value="1" id="f1" checked> <label for="f1"> 아이디 찾기 </label> 
+                	<input type = "radio" name="finder" value="2" id="f2" > <label for="f2"> 비밀번호 찾기</label> </td>
+				</td>
+			<tr>
+				<td> 닉네임 </td>
+				<td> <input type = "text" name = "name"> </td>
+			</tr>
+			<tr>
+				<td> 전화번호 </td>
+				<td> <input type = "text" name = "tel"> </td>
+			</tr>
+			</tr>
+
+		</table>
+		<input type="button" value="찾기" onclick="fn_find()">
+		<input type="button" value="로그인" onclick="location.href='/Omok/login.html'">
+		<input type="button" value="회원가입" name = "join"  onclick="location.href='/Omok/join.html'">
+		<input type="hidden" name="command" value = "findId" />
+	</form>
+</body>
+</html>
