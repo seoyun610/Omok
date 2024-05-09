@@ -47,6 +47,20 @@
 		function disconnect() {
 			webSocket.close();
 		}
+		
+		function getCookie(name) {
+	        var value = "; " + document.cookie;
+	        var parts = value.split("; " + name + "=");
+	        if (parts.length == 2) return parts.pop().split(";").shift();
+	    }
+
+	    window.onload = function() {
+	        // 쿠키에서 사용자 이름 읽기
+	        var userName = getCookie("user");
+	        if(userName) {
+	            document.getElementById("user").value = decodeURIComponent(userName);
+	        }
+	    };
 	</script>
 </body>
 </html>

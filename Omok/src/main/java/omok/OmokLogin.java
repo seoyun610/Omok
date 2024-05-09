@@ -2,14 +2,11 @@ package omok;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,11 +35,23 @@ public class OmokLogin extends HttpServlet {
         boolean result = dao.login(_id,_pwd);
 		PrintWriter out = response.getWriter();
 		
+		//
+		
 		if (result) {
 			out.print("<html><body>");
 			out.print( _id + "님, 로그인 되었습니다.");
 			out.print("</table></body></html>");
+			
+			//쿠키를 선언해주고 로그아웃만든 다음에 쿠키 삭제하고
+			// user.value 에 데이터 값을 넣어줘서 
+			// 쿠키 생성 및 설정
+		    Cookie userCookie = new Cookie("user", URLEncoder.encode(_id, "UTF-8"));
+		    userCookie.setMaxAge(60*60*24); // 쿠키 유효 기간을 1일로 설정
+		    response.addCookie(userCookie); // 응답에 쿠키 추가
+
+			
 			response.sendRedirect("/Omok/main.html"); // 가정하는 URL입니다. 실제 URL에 맞게 수정해주세요.
+			
 		} else {
 			out.print("<html><body>");
 			out.print(" 로그인에 실패하였습니다. <br> 아이디 혹은 비밀번호를 다시 확인해주세요<br>");

@@ -36,7 +36,7 @@ public class MemberDAO {
 			String name = vo.getName();
 			String tel = vo.getTel();
 			
-			String query = "insert into omok";
+			String query = "insert into users";
 			query += " (id, pwd, name, tel)";
 			query += " values(?, ?, ?, ?)";
 			pstmt = con.prepareStatement(query);
@@ -62,7 +62,7 @@ public class MemberDAO {
 			boolean result = false;
 			try {
 				con = dataFactory.getConnection();
-				String query = "select decode(count(*), 1, 'true', 'false') as result from omok";
+				String query = "select decode(count(*), 1, 'true', 'false') as result from users";
 				query += " where id=? and pwd=?";
 				pstmt = con.prepareStatement(query);
 				pstmt.setString(1, id);
@@ -71,6 +71,8 @@ public class MemberDAO {
 				rs.next();
 				result = Boolean.parseBoolean(rs.getString("result"));
 				pstmt.close();
+				
+				//쿠키 선언하고 그 쿠키에 n
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -92,7 +94,7 @@ public class MemberDAO {
 
 	        try {
 	        	con = dataFactory.getConnection();
-	            String query = "SELECT id FROM omok WHERE name = ? AND tel = ?";
+	            String query = "SELECT id FROM users WHERE name = ? AND tel = ?";
 	            pstmt = con.prepareStatement(query);
 	            pstmt.setString(1, name);
 	            pstmt.setString(2, tel);
@@ -123,7 +125,7 @@ public class MemberDAO {
 
 	        try {
 	        	con = dataFactory.getConnection();
-	            String query = "SELECT pwd FROM omok WHERE name = ? AND tel = ?";
+	            String query = "SELECT pwd FROM users WHERE name = ? AND tel = ?";
 	            pstmt = con.prepareStatement(query);
 	            pstmt.setString(1, name);
 	            pstmt.setString(2, tel);
@@ -146,6 +148,8 @@ public class MemberDAO {
 	            }
 	        }
 	    }
+	    
+	  
 }
 
 
