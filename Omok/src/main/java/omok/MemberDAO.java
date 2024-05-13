@@ -86,6 +86,61 @@ public class MemberDAO {
 
 	     
 	}
+	 public List<MemberVO> listUsers(String searchType, String searchWord) {
+		 List<MemberVO> list = new ArrayList<>();
+		 ResultSet rs = null;
+		 try {
+			 con = dataFactory.getConnection();
+			 String query = "select * from users";
+			 String whereQuery = "";
+			 if (searchWord != null && !"".equals(searchWord)) {
+				if ("all".equals(searchType)) {
+					whereQuery = " where id like '%"+searchWord+"%' or name like '%"+searchWord+"%' or email like '%"+searchWord+"%'";
+				} else {
+					whereQuery = " where "+searchType+" like '%"+searchWord+"%'";
+				}
+			}
+			 query += whereQuery;
+			 pstmt = con.prepareStatement(query);
+			 rs = pstmt.executeQuery(query);
+			 while(rs.next()) {
+				 MemberVO vo = new MemberVO();
+				 vo.setId(rs.getString("id"));
+				 vo.setPwd(rs.getString("pwd"));
+				 vo.setName(rs.getString("name"));
+				 vo.setTel(rs.getString("tel"));
+				 list.add(vo);
+			 }
+		 } catch (Exception e) {
+			 e.printStackTrace();
+		 } finally {
+			try {rs.close();}catch(Exception e) {}
+			try {pstmt.close();}catch(Exception e) {}
+			try {con.close();}catch(Exception e) {}
+		 }
+		 return list;
+	 }
+	 
+	 public String getUserNameById(String id) {
+		    String name = null;
+		    try {
+		        con = dataFactory.getConnection();
+		        String query = "select name from users where id=?";
+		        pstmt = con.prepareStatement(query);
+		        pstmt.setString(1, id);
+		        ResultSet rs = pstmt.executeQuery();
+		        if(rs.next()) {
+		            name = rs.getString("name");
+		        }
+		        rs.close();
+		        pstmt.close();
+		        con.close();
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		    return name;
+		}
+
 	 
 	 
 	 public String findId(String name, String tel) {

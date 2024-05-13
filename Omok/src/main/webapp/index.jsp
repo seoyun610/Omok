@@ -7,9 +7,9 @@
 <title>Web Socket Example</title>
 </head>
 <body>
-	<form>
+	<form onsubmit="return false;">
 		<input id="user" type="text" value="annonymous">
-		<input id="textMessage" type="text">
+		<input id="textMessage" type="text" onkeypress="if(event.keyCode==13){sendMessage();}">
 		<input onclick="sendMessage()" value="Send" type="button">
 		<input onclick="disconnect()" value="Disconnect" type="button">
 	</form>
