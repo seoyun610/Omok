@@ -58,9 +58,9 @@ a {
  <div class="container">
     <h1>오목게임</h1>
     <button class="login-btn" onclick="startLogin()">로그인/회원가입</button>
-    <button onclick="goToCreatRoom()">방 생성하기</button>
-    <button onclick="goToEnterRoom()">방 들어가기</button>       
-    <button onclick="goToMyPage()">마이페이지</button>
+    <button class="creatroom" onclick="goToCreatRoom()">방 생성하기</button>
+    <button class="joinroom" onclick="goToEnterRoom()">방 들어가기</button>       
+    <button class="myroom" onclick="goToMyPage()">마이페이지</button>
   </div>
 
   <script>
@@ -86,6 +86,13 @@ a {
 	         
 	    	  // 로그인 쿠키가 존재하면 로그인/회원가입 버튼을 숨김
 	          document.querySelector('.login-btn').style.display = 'none'; 
+	    	  
+	      }  else if (document.cookie.indexOf("user") < 0) {
+	         
+	    	  // 로그인 쿠키가 존재하지 않으면, 나머지
+	          document.querySelector('.creatroom').style.display = 'none'; 
+	          document.querySelector('.joinroom').style.display = 'none'; 
+	          document.querySelector('.myroom').style.display = 'none'; 
 	      }
 	}
 	  

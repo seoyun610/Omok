@@ -7,7 +7,7 @@
 <title> My Page </title>
 <style>
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; 
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
