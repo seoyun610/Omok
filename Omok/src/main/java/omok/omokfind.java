@@ -38,6 +38,8 @@ public class omokfind extends HttpServlet {
             result = dao.findId(name, tel);
             if (result != null && !result.isEmpty()) {
                 out.println(name + " 님의 아이디는 [" + result + "] 입니다.");
+                out.print("<br><a href='/Omok/Login.jsp'> 로그인 하기 </a〉");
+                out.print("<br><br><a href='/Omok/Find.jsp'> 비밀번호 찾기 </a〉");
             } else {
                 out.println("ID를 찾을 수 없습니다.");
             }
@@ -45,6 +47,8 @@ public class omokfind extends HttpServlet {
             result = dao.findPassword(name, tel);
             if (result != null && !result.isEmpty()) {
                 out.println(name + " 님의 비밀번호는 [" + result + "] 입니다.");
+                out.print("<br><a href='/Omok/Login.jsp'> 로그인 하기 </a〉");
+                out.print("<br><br><a href='/Omok/Find.jsp'> 비밀번호 찾기 </a〉");
             } else {
                 out.println("비밀번호를 찾을 수 없습니다.");
             }

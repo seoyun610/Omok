@@ -39,16 +39,16 @@ public class OmokJoin extends HttpServlet {
 			String _name = request.getParameter("name");
 			String _tel = request.getParameter("tel");
 			MemberVO vo = new MemberVO();
-			vo.setId(_id);
-			vo.setPwd(_pwd);
-			vo.setName(_name);
-			vo.setTel (_tel);
+			vo.setUserid(_id);
+			vo.setUserpwd(_pwd);
+			vo.setUsername(_name);
+			vo.setUsertel (_tel);
 			dao.addMember(vo);
 			out.println( _name + " 님, 가입 축하합니다." );
 		} 
 
 		
-		out.print("<a href='/Omok/login.html'> 로그인 하기 </a〉");
+		out.print("<a href='/Omok/Login.jsp'> 로그인 하기 </a〉");
 
 
 	}
