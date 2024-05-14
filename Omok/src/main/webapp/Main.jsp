@@ -74,7 +74,7 @@ a {
     }
     function goToEnterRoom() {
     	// 방 입장 페이지로 이동 
-    	window.location.href = "OmokGame.jsp"; // 방 입장 jsp 파일 경로 
+    	window.location.href = "GamePage/Select.do"; // 방 입장 jsp 파일 경로 
     }
     function goToMyPage(){
     	//마이페이지로 이동 

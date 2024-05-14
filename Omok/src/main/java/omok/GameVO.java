@@ -11,5 +11,6 @@ public class GameVO {
 	private String gameid;
 	private String userid;
 	private String results;
-
+	private int ppl;
+	private String gamename;
 }

@@ -74,9 +74,9 @@
   </style>
 </head>
 <body>
- <form action="OmokGame.jsp" method="post">
-        <label for="room_title">방 제목:</label>
-        <input type="text" id="room_title" name="room_title" required><br><br>
+ <form action="/Omok/GamePage/Create.jsp" method="post">
+        <label for="gamename">방 제목:</label>
+        <input type="text" id="gamename" name="gamename" required><br><br>
 
        
         <input type="submit" value="확인">
