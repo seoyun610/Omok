@@ -6,73 +6,101 @@
 <meta charset="UTF-8">
 <title> My Page </title>
 <style>
-body {
-    font-family: Arial, sans-serif; 
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    margin-top: 50px;
-}
-
-.container {
-    width: 50%;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-}
-
-input[type="text"], input[type="password"], input[type="button"], input[type="submit"], input[type="reset"] {
-    width: calc(100% - 10px);
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
-
-input[type="text"], input[type="password"] {
-    width: calc(100% - 20px); /* 너비를 조절합니다. */
-}
-
-input[type="button"], input[type="submit"], input[type="reset"] {
-    background-color: #298BFE;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%;
-    padding: 10px;
-}
-
-input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
-    background-color: #0056b3;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-td, th {
-    border: 1px solid #ccc;
-    padding: 8px;
-}
-
-details {
-    margin-top: 20px;
-}
-
-
+	body {
+	    font-family: Arial, sans-serif;
+	    align-items: center;
+	    height: 100vh;
+	    background-color: #f0f0f0;
+	    text-align: center;
+	    margin: 0;
+	    padding: 0;
+	    
+	}
+	
+	h1 {
+	    margin-top: 30px;
+	}
+	
+	.container {
+	    width: 80%;
+	    max-width: 350px;
+	    margin: 50px auto;
+	    padding: 20px;
+	    background-color: #fff;
+	    border-radius: 5px;
+	    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	    display: flex; 
+	    flex-direction: column; 
+	    align-items: center;
+	}
+	
+	.info-section {
+		width: 100%; 
+		margin: 5px 0; 
+		padding: 10px 0; 
+		border-bottom: 1px solid #ddd; 
+		text-align: center;
+	}
+	
+	.info-section:last-child{
+		border-bottom: none;
+	}
+	
+	
+	input[type="text"], input[type="password"], input[type="button"], input[type="submit"], input[type="reset"] {
+	    width: 60%;
+	    padding: 10px;
+	    margin-bottom: 15px;
+	    border: 1px solid #ccc;
+	    border-radius: 3px;
+	    box-sizing: border-box;
+	    text-align: center;
+	}
+	
+	.button-container{
+		display: flex; 
+		flex-direction: column;
+		align-items: center; 
+		width: 100%; 
+	
+	}
+	
+	
+	input[type="button"], input[type="submit"], input[type="reset"] {
+	    width: 60%;
+	    padding: 10px;
+	    margin-bottom: 15px;
+	    background-color: #298BFE;
+	    color: white;
+	    border: none;
+	    border-radius: 5px;
+	    cursor: pointer;
+	    transition: background-color 0.3s;
+	    text-align: center;
+	}
+	
+	input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+	    background-color: #0056b3;
+	    
+	}
+	
+	details {
+	        margin-top: 20px;
+	        width: 100%;
+	        text-align: center;
+	    }
+	
+	    table {
+	        width: 100%;
+	        border-collapse: collapse;
+	        margin-top: 20px;
+	    }
+	
+	    th {
+	        border: 1px solid #ccc;
+	        
+	    }
+	    
 
 </style>
 <script>
