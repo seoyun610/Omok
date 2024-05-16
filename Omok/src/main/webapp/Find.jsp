@@ -121,12 +121,13 @@ input[type=button]:hover {
 <body>
 	<form name="frmFind">
 		<table>
-			<th> 아이디 / 비밀번호 찾기 </th>
+			<th colspan= '2'> 아이디 / 비밀번호 찾기 </th>
 			<tr>
-				<td>  
-					<input type = "radio" name="finder" value="1" id="f1" checked> <label for="f1"> 아이디 찾기 </label> 
-                	<input type = "radio" name="finder" value="2" id="f2" > <label for="f2"> 비밀번호 찾기</label> </td>
-				</td>
+				<td colspan = '2'> 찾으려는 항목을 선택해주세요. </td>
+			</tr>
+			<tr>
+				<td><input type = "radio" name="finder" value="1" id="f1" checked> <label for="f1"> 아이디 </label> </td>
+                <td><input type = "radio" name="finder" value="2" id="f2" > <label for="f2"> 비밀번호 </label> </td>
 			<tr>
 				<td> 닉네임 </td>
 				<td> <input type = "text" name = "name"> </td>
@@ -139,8 +140,8 @@ input[type=button]:hover {
 
 		</table>
 		<input type="button" value="찾기" onclick="fn_find()">
-		<input type="button" value="로그인" onclick="location.href='/Omok/login.html'">
-		<input type="button" value="회원가입" name = "join"  onclick="location.href='/Omok/join.html'">
+		<input type="button" value="로그인" onclick="location.href='/Omok/Login.jsp'">
+		<input type="button" value="회원가입" name = "join"  onclick="location.href='/Omok/Join.jsp'">
 		<input type="hidden" name="command" value = "findId" />
 	</form>
 </body>

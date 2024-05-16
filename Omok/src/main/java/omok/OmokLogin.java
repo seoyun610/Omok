@@ -39,7 +39,7 @@ public class OmokLogin extends HttpServlet {
 			Cookie userCookie = new Cookie("user", URLEncoder.encode(_id, "UTF-8"));
 			userCookie.setMaxAge(60*60*24); // 쿠키 유효 기간을 1일로 설정
 			userCookie.setPath("/");
-		  response.addCookie(userCookie);
+			response.addCookie(userCookie);
 			
 		} else {
 			out.print("<script>alert('로그인에 실패하였습니다. 아이디와 비밀번호를 다시 확인해주세요');</script>");

@@ -44,12 +44,11 @@ public class OmokJoin extends HttpServlet {
 			vo.setUsername(_name);
 			vo.setUsertel (_tel);
 			dao.addMember(vo);
-			out.println( _name + " 님, 가입 축하합니다." );
+			out.println("<script type='text/javascript'>");
+			out.println("alert('"+ _name + " 님, 가입 축하합니다.');" );
+			out.println("location.href = '/Omok/Login.jsp';");
+	        out.println("</script>");
 		} 
-
-		
-		out.print("<a href='/Omok/Login.jsp'> 로그인 하기 </a〉");
-
 
 	}
 
