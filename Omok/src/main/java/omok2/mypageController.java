@@ -1,4 +1,4 @@
-package omok;
+package omok2;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -79,7 +79,7 @@ public class mypageController extends HttpServlet {
 			PrintWriter out = response.getWriter();
 	        out.println("<script type='text/javascript'>");
 	        out.println("alert('수정이 완료되었습니다, 마이 페이지로 돌아갑니다.');");
-	        out.println("location.href = '/Omok/Main.jsp';");
+	        out.println("location.href = '/omok2/Main.jsp';");
 	        out.println("</script>");
 	        
 	        return;
@@ -105,7 +105,7 @@ public class mypageController extends HttpServlet {
 	        PrintWriter out = response.getWriter();
 	        out.println("<script type='text/javascript'>");
 	        out.println("alert('로그아웃 되었습니다');");
-	        out.println("location.href = '/Omok/Main.jsp';");
+	        out.println("location.href = '/omok2/Main.jsp';");
 	        out.println("</script>");
 	        System.out.println(" 삭제 ");
 	        return;

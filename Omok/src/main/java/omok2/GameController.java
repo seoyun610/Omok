@@ -1,4 +1,4 @@
-package omok;
+package omok2;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,16 +15,10 @@ import javax.servlet.http.HttpSession;
 
 
 
-@WebServlet("/GamePage/*")
+@WebServlet("/Game/*")
 public class GameController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private GameDAO dao;
-	
-	//처음 실행할 때 단 한 번만 실행 
-	public void init() throws ServletException {
-		dao = new GameDAO();
-	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doHandle(request, response);
@@ -36,29 +30,34 @@ public class GameController extends HttpServlet {
 	}
 
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		MemberDAO dao = new MemberDAO();
 		String page = null;
 		String action = request.getPathInfo();
+		
+		String userId = null;
+	    Cookie[] cookies = request.getCookies();
+	    if (cookies != null) {
+	        for (Cookie cookie : cookies) {
+	            if (cookie.getName().equals("user")) {
+	                userId = URLDecoder.decode(cookie.getValue(), "UTF-8");
+	                break;
+	            }
+	        }
+	    }
 
-		if ("/Create.jsp".equals(action)) {
-			String gamename = request.getParameter("gamename");
-			dao.addGame(gamename);
-			page = "/OmokGame.jsp";
-			System.out.println(gamename);
-		} else if ("/Select.do".equals(action)) {
-			List<GameVO> list = dao.findGame();
-			request.setAttribute("gameList", list);
-			page = "/Roomselect.jsp";
-			System.out.println(list);
-		} // else if ("/call.do".equals(action)) {
-//			
-//			
-//			page = "/OmokGame.jsp";
-//			System.out.println(gamename);
-//		}
-		
-		
-		request.getRequestDispatcher(page).forward(request, response);
+		System.out.println("action : "+action);
+		System.out.println(userId);
+		if ("/result.do".equals(action)) {
+			// 비즈니스 로직  처리 
+			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html;charset=utf-8");
+			dao.resultUpdate(userId);
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+	        out.println("location.href = '/omok2/Main.jsp';");
+	        out.println("</script>");
+			
+		} 
 		
 	}
 

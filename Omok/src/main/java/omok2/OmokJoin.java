@@ -1,4 +1,4 @@
-package omok;
+package omok2;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,7 +46,7 @@ public class OmokJoin extends HttpServlet {
 			dao.addMember(vo);
 			out.println("<script type='text/javascript'>");
 			out.println("alert('"+ _name + " 님, 가입 축하합니다.');" );
-			out.println("location.href = '/Omok/Login.jsp';");
+			out.println("location.href = '/omok2/Login.jsp';");
 	        out.println("</script>");
 		} 
 

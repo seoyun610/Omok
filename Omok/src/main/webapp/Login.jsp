@@ -107,9 +107,9 @@ input[type=button]:hover {
 			</tr>
 		</table>
 		<input type="button" value="로그인" onclick="fn_login()">
-		<input type="button" value="아이디 / 비밀번호 찾기" onclick="location.href='/Omok/Find.jsp'">
+		<input type="button" value="아이디 / 비밀번호 찾기" onclick="location.href='/omok2/Find.jsp'">
 		<br>
-		<input type="button" value="회원가입" name = "join"  onclick="location.href='/Omok/Join.jsp'">
+		<input type="button" value="회원가입" name = "join"  onclick="location.href='/omok2/Join.jsp'">
 		<input type="hidden" name="command" value = "login">
 	</form>
 </body>

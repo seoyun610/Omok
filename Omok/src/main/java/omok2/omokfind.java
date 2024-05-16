@@ -1,4 +1,4 @@
-package omok;
+package omok2;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,13 +40,13 @@ public class omokfind extends HttpServlet {
             	
             	out.println("<script type='text/javascript'>");
     			out.println("alert('"+ name + " 님의 아이디는 [" + result + "] 입니다.');" );
-    			out.println("location.href = '/Omok/Login.jsp';");
+    			out.println("location.href = '/omok2/Login.jsp';");
     	        out.println("</script>");
 
             } else {
             	out.println("<script type='text/javascript'>");
     			out.println("alert('ID를 찾을 수 없습니다.');");
-    			out.println("location.href = '/Omok/Find.jsp';");
+    			out.println("location.href = '/omok2/Find.jsp';");
     	        out.println("</script>");
             }
         } else {
@@ -54,12 +54,12 @@ public class omokfind extends HttpServlet {
             if (result != null && !result.isEmpty()) {
             	out.println("<script type='text/javascript'>");
     			out.println("alert('"+ name + " 님의 비밀번호는 [" + result + "] 입니다.');" );
-    			out.println("location.href = '/Omok/Login.jsp';");
+    			out.println("location.href = '/omok2/Login.jsp';");
     	        out.println("</script>");
             } else {
             	out.println("<script type='text/javascript'>");
     			out.println("alert('비밀번호를 찾을 수 없습니다.');");
-    			out.println("location.href = '/Omok/Find.jsp';");
+    			out.println("location.href = '/omok2/Find.jsp';");
     	        out.println("</script>");
             }
         }

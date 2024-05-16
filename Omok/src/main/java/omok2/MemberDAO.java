@@ -1,4 +1,4 @@
-package omok;
+package omok2;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +13,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import omok.MemberVO;
+import omok2.MemberVO;
 
 public class MemberDAO {
 	private Connection con;
@@ -183,6 +183,8 @@ public class MemberDAO {
 	    return list;
 
 		}
+	 
+	 
 	
 	 public List<GameVO> gameList (String id){
 		 ResultSet rs = null;
@@ -190,25 +192,15 @@ public class MemberDAO {
 
 		 try {
 			 con = dataFactory.getConnection();
-			 String query = "SELECT r1.gameid, r1.userid, r1.results"
-			 		+ " FROM records r1"
-			 		+ " JOIN records r2 ON r1.gameid = r2.gameid"
-			 		+ " WHERE r2.userid = ?"
-			 		+ " AND r1.userid != ?";
+			 String query = "SELECT * FROM RECORDS WHERE USERID = ?";
 			 pstmt = con.prepareStatement(query);
 			 pstmt.setString(1, id);
-			 pstmt.setString(2, id);
 			 rs = pstmt.executeQuery();
 			 
 			 while (rs.next()) { 
 				 GameVO vo = new GameVO();
-				 vo.setGameid(rs.getString("gameid"));
 				 vo.setUserid(rs.getString("userid"));
-				 if (rs.getString("results").equals("1")) {
-					 vo.setResults("패배");
-				 } else {
-					 vo.setResults("승리");
-				 }
+				 vo.setGamedate(rs.getString("gamedate"));
 				 list.add(vo);
 			 }
 
@@ -270,6 +262,25 @@ public class MemberDAO {
 		    return name;
 		}
  
+	 
+	 public void resultUpdate(String id) {
+		 try {
+			 con = dataFactory.getConnection();
+			 String query = "insert into RECORDS";
+			 query += " (userid)";
+			 query += " values(?)";
+			 pstmt = con.prepareStatement(query);
+			 pstmt.setString(1, id);
+			 pstmt.executeUpdate();
+			 pstmt.close();
+			 con.close();
+		 } catch (Exception e) {
+			 e.printStackTrace();
+		 } finally { 
+			 try { pstmt.close(); } catch(Exception e) {}
+			 try { con.close(); } catch(Exception e) {} 
+		 }
+	 }
 }
 
 		

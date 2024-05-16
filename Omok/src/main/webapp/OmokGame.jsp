@@ -177,7 +177,7 @@
         const row = document.createElement('tr');
         for (let j = 1; j <= 8; j++) {
             const cell = document.createElement('td');
-            cell.id = ``;
+            cell.id = '';
             row.appendChild(cell);
         }
         table.appendChild(row);
@@ -199,14 +199,14 @@
             
             const winArr = checkWin(event.target);
             if (winArr.length >= 5) {
-                winnerInfo.textContent = `이(가) 이겼습니다!`;
+                winnerInfo.textContent = '이(가) 이겼습니다!';
                 table.removeEventListener('click', boxClick);
             } else if (allArr === 64) {
-                winnerInfo.textContent = `비겼습니다!`;
+                winnerInfo.textContent = '비겼습니다!';
                 table.removeEventListener('click', boxClick);
             }
             thisTurn = thisTurn === "O" ? "X" : "O";
-            playerInfo.textContent = `현재 플레이어 : `;
+            playerInfo.textContent = '현재 플레이어 : ';
         }
     }
 
@@ -265,7 +265,7 @@
         });
         thisTurn = "O";
         allArr = 0;
-        playerInfo.textContent = `현재 플레이어 : `;
+        playerInfo.textContent = '현재 플레이어 : ';
         forbiddenInfo.textContent = "";
         winnerInfo.textContent = "";
         table.addEventListener('click', boxClick);

@@ -12,6 +12,8 @@
 	    height: 100vh;
 	    background-color: #f0f0f0;
 	    text-align: center;
+	    justify-content: center;
+    	align-items: center;
 	    margin: 0;
 	    padding: 0;
 	    
@@ -84,10 +86,11 @@
 	    
 	}
 	
-	details {
+	details > table {
 	        margin-top: 20px;
 	        width: 100%;
 	        text-align: center;
+	        border: 1px solid #ccc;
 	    }
 	
 	    table {
@@ -140,7 +143,7 @@
 	<form name = "frmMember" method = "post"> 
 		<table>
 			<tr>
-				<td colspan="2">My Page</td>
+				<td colspan="2"> My Page</td>
 			</tr>
 			<tr>
 				<td> ID </td>
@@ -166,8 +169,8 @@
 			</tr>
 			<tr align="center">
 			<td colspan="2">
-				<input type="button" value="메인으로 돌아가기" onClick = 'location.href = "/Omok/Main.jsp"'> &nbsp;
-			 	<input type="button" value="로그아웃" onClick = 'location.href = "/Omok/Mypage/logout.do"'>
+				<input type="button" value="메인으로 돌아가기" onClick = 'location.href = "/omok2/Main.jsp"'> &nbsp;
+			 	<input type="button" value="로그아웃" onClick = 'location.href = "/omok2/Mypage/logout.do"'>
 			 </td>
 			</tr>
 		</table>
@@ -178,9 +181,7 @@
         <table>
         	<tr align = "center">
         		<td> <b> NO </b> </td>
-				<td> <b> 게임 방 </b> </td>
-				<td> <b> 대진 상대 </b> </td>
-				<td> <b> 결과 </b> </td>
+				<td> <b> 이긴 날짜 </b> </td>
 			</tr>
 	        <c:if test = "${empty gameList }">
 				<tr> 
@@ -190,9 +191,7 @@
 			<c:forEach var = "game" items = "${gameList }" varStatus = "status">
 			 	<tr align = "center"> 
 			 		<td> ${status.index+1 } </td>
-			 		<td> ${game.gameid }</td>
-			 		<td> ${game.userid }</td>
-			 		<td> ${game.results }</td>
+			 		<td> ${game.gamedate }</td>
 			 	</tr>
 			 </c:forEach>
 		</table>
